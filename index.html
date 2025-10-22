@@ -1,110 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <title>Project 2: Persuasive or Deceptive Visualization</title>
-    <style>
-      body {
-        font-family: Arial, Helvetica, sans-serif;  /* Clean, consistent font */
-        font-size: 16px; 
-        line-height: 1.6;
-        margin: 40px;
-      }
-  
-      h1, h2, h3 {
-        font-family: Arial, Helvetica, sans-serif;
-        font-weight: bold;
-        color: #222;
-      }
-  
-      h1 {
-        font-size: 26px;
-      }
-  
-      h2 {
-        font-size: 22px;
-        margin-top: 30px;
-      }
-  
-      h3 {
-        font-size: 18px;
-        margin-top: 20px;
-      }
-  
-      p, li {
-        font-size: 16px;
-      }
-  
-      figure {
-        margin: 30px auto;
-        text-align: center;
-      }
-  
-      figcaption {
-        font-size: 14px;
-        font-style: italic;
-        margin-top: 5px;
-      }
-    </style>
-  </head>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Project 2: Persuasive or Deceptive Visualization</title>
+
+  <style>
+    /* ---------- Page & Typography ---------- */
+    :root{
+      --page-w: 900px;     /* max content width */
+      --h1: 28px;
+      --h2: 20px;
+      --h3: 16px;
+      --body: 16px;
+      --muted: #666;
+    }
+    html,body{margin:0;padding:0}
+    body{
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: var(--body);
+      line-height: 1.6;
+      color:#111;
+      background:#fff;
+    }
+    .container{
+      max-width: var(--page-w);
+      margin: 36px auto 80px;
+      padding: 0 18px;
+    }
+
+    /* ---------- Headings ---------- */
+    h1{ font-size: var(--h1); line-height:1.25; margin: 0 0 6px; }
+    .subhead{ color: var(--muted); margin: 0 0 22px; font-size: 14px; }
+    h2{ font-size: var(--h2); margin: 26px 0 8px; }
+    h3{ font-size: var(--h3); margin: 18px 0 6px; }
+
+    /* ---------- Figures ---------- */
+    figure{ margin: 18px auto 28px; text-align:center; }
+    img.viz{
+      display:block;
+      max-width: 100%;
+      width: 100%;          /* responsive to container */
+      height: auto;         /* preserve aspect */
+      border: 0;
+    }
+    /* Use .v70 to make a figure a bit smaller if needed */
+    img.viz.v70{ width: 70%; margin: 0 auto; }
+
+    figcaption{
+      font-size: 14px;
+      color: var(--muted);
+      font-style: italic;
+      margin-top: 6px;
+      text-align:center;
+    }
+
+    /* ---------- Other text ---------- */
+    .note{ font-size: 14px; color: var(--muted); margin: 8px 0 14px; text-align:center; }
+    ul{ margin: 10px 0 22px; }
+    li + li{ margin-top: 4px; }
+    .small{ font-size: 14px; color: var(--muted); }
+    hr{ border:0; border-top:1px solid #eee; margin: 24px 0; }
+  </style>
+</head>
+
 <body>
-  <h1>Project 2: Persuasive or Deceptive Visualization</h1>
-  <p><strong>Sahra Ranjbar</strong></p>
+  <div class="container">
 
-  <h2>Proposition: Advanced Economies Remain Major Contributors to GHG Emissions</h2>
+    <h1>Project 2: Persuasive or Deceptive Visualization</h1>
+    <p class="subhead"><strong>Sahra Ranjbar</strong></p>
 
-  <!-- PRO Visualization -->
-  <h3>FOR the Proposition</h3>
-  <figure>
-    <img src="PRO_percapita_avg.png" alt="Per-Capita GHG Emissions (2010–2023)">
-    <figcaption><strong>Figure 1:</strong> Per-capita GHG emissions (2010–2023). Advanced economies emit ≈2.2× more CO₂ per person compared to emerging & developing economies.</figcaption>
-  </figure>
+    <h2>Proposition: Advanced Economies Remain Major Contributors to GHG Emissions</h2>
 
-  <h4>Design Decisions and Rationale</h4>
-  <ul>
-    <li><strong>Framing emissions per-capita instead of totals (Score: +1.5):</strong> Reframes the debate toward fairness and responsibility. While advanced economies do not have the highest total emissions, looking per person makes them stand out. Persuasive but still earnest.</li>
-    <li><strong>Explicit annotation “AE ≈ 2.2× higher” (Score: +1):</strong> Ensures the key point is clear to viewers. Slightly persuasive in wording, but transparent.</li>
-    <li><strong>Strong contrasting colors (Score: +2):</strong> Clear, consistent coding (blue vs. orange) enhances readability. Fully earnest design choice.</li>
-    <li><strong>Title/subtitle emphasizing disparity (Score: +0.5):</strong> Highlights the difference to guide interpretation. Persuasive, but not misleading.</li>
-  </ul>
+    <h3>FOR the Proposition</h3>
 
-  <!-- CON Visualization -->
-  <h3>AGAINST the Proposition</h3>
-  <figure>
-    <img src="CON_index_2010.png" alt="Indexed Growth in Emissions (2010=100)">
-    <figcaption><strong>Figure 2:</strong> Indexed emissions growth (2010=100). Since 2010, emerging & developing economies rose +31% while advanced economies declined −15%.</figcaption>
-  </figure>
+    <figure>
+      <!-- If this still feels too large visually, change class="viz" to class="viz v70" -->
+      <img class="viz v70" src="PRO_percapita_avg.png" alt="Bar chart of average per-capita GHG emissions, 2010–2023: Advanced Economies ≈ 12.1 vs Emerging &amp; Developing ≈ 5.4 tons CO2-eq per person." />
+      <p class="note">
+        Per-capita computed using approximate 2020 populations (AE ≈ 1.2B, EMDE ≈ 6.4B).
+      </p>
+      <figcaption>
+        Figure 1: Per-capita GHG emissions (2010–2023). Advanced economies emit ≈2.2× more CO<sub>2</sub> per person than emerging &amp; developing economies.
+      </figcaption>
+    </figure>
 
-  <h4>Design Decisions and Rationale</h4>
-  <ul>
-    <li><strong>Indexing emissions to 2010 baseline (Score: −1.5):</strong> Normalization shifts focus from absolute responsibility to relative growth, exaggerating EMDE’s increase. Selective framing, leaning deceptive.</li>
-    <li><strong>Shaded area between lines (Score: −1):</strong> Emphasizes divergence visually, making EMDE’s growth appear dominant. Persuasive but not neutral.</li>
-    <li><strong>Percent-change annotations (+31% vs −15%) (Score: +1):</strong> Direct labels reinforce interpretation. Persuasive but factually accurate.</li>
-    <li><strong>Dashed baseline at 100 (Score: +2):</strong> Provides a neutral point of reference. Fully earnest design choice.</li>
-  </ul>
+    <h3>Design Decisions and Rationale</h3>
+    <ul>
+      <li><strong>Framing emissions per-capita instead of totals</strong> (Score: <strong>+1.5</strong>): reframes toward fairness/responsibility; highlights disproportion per person.</li>
+      <li><strong>Explicit annotation “AE ≈ 2.2× higher”</strong> (Score: <strong>+1</strong>): makes the key gap clear at a glance; persuasive but transparent.</li>
+      <li><strong>Strong contrasting colors (blue vs. orange)</strong> (Score: <strong>+2</strong>): consistent coding enhances readability; earnest design choice.</li>
+      <li><strong>Title/subtitle emphasizing disparity</strong> (Score: <strong>+0.5</strong>): guides interpretation without misstating data.</li>
+    </ul>
 
-  <!-- Final Reflection -->
-  <h2>Final Reflection</h2>
-  <p>
-    Designing these two visualizations highlighted how small choices in framing and encoding can dramatically shift the story that viewers take away. 
-    The per-capita emissions chart was straightforward: the data itself clearly showed a large gap between advanced and emerging economies, so the challenge 
-    was mostly about communicating that disparity clearly and persuasively. Adding the “≈2.2× higher” annotation and framing the comparison per person rather 
-    than by total emissions made the message much more impactful. What surprised me was how much the framing choice itself (per-capita vs. total) could reshape 
-    the narrative without altering the underlying numbers.
-  </p>
-  <p>
-    The indexed growth visualization was more difficult, because it required deliberately choosing a representation that downplays absolute responsibility 
-    and instead emphasizes relative growth. By normalizing both groups to 2010=100, the visualization shifts the focus toward emerging economies as the main 
-    driver of growth, even though advanced economies remain substantial contributors. The shaded gap and percent-change labels added persuasive power, but 
-    also pushed the design closer to being deceptive. This exercise showed me how easy it is to steer interpretation simply by choosing baselines or 
-    normalization methods.
-  </p>
-  <p>
-    Through this process, I’ve come to define “ethical visualization” as one that balances clarity and persuasion without misrepresenting the data. 
-    Acceptable persuasion includes emphasizing comparisons or annotating key insights, as long as the message is faithful to the data. Misleading designs, 
-    however, hide or distort important context—such as ignoring absolute contributions when showing indexed growth. The boundary is not always sharp, 
-    but reflecting on both sides made me more aware of the responsibility in presenting data: every design choice carries rhetorical weight, and those 
-    choices should be transparent and defensible.
-  </p>
+    <hr />
+
+    <h3>AGAINST the Proposition</h3>
+
+    <figure>
+      <img class="viz v70" src="CON_index_2010.png" alt="Indexed emissions growth since 2010 (2010=100): Emerging &amp; developing up about +31%, Advanced Economies down about −15%." />
+      <figcaption>
+        Figure 2: Indexed emissions growth (2010=100). Since 2010, emerging &amp; developing economies rose ≈+31% while advanced economies declined ≈−15%.
+      </figcaption>
+    </figure>
+
+    <h3>Design Decisions and Rationale</h3>
+    <ul>
+      <li><strong>Indexing emissions to a 2010 baseline</strong> (Score: <strong>−1.5</strong>): shifts focus from absolute responsibility to relative growth; can exaggerate EMDE increase.</li>
+      <li><strong>Shaded gap between lines</strong> (Score: <strong>−1</strong>): visually emphasizes divergence, nudging attention to EMDE growth.</li>
+      <li><strong>Percent-change annotations (+31% vs −15%)</strong> (Score: <strong>+1</strong>): direct labels reinforce interpretation; persuasive but factually accurate.</li>
+      <li><strong>Dashed baseline at 100</strong> (Score: <strong>+2</strong>): neutral reference line; earnest choice that helps reading.</li>
+    </ul>
+
+    <hr />
+
+    <h2>Final Reflection</h2>
+    <p>
+      Designing these two visualizations highlighted how small choices in framing and encoding can dramatically shift the story that viewers take away. The per-capita emissions chart was straightforward: the data itself clearly showed a large gap between advanced and emerging economies, so the challenge was mostly about communicating that disparity clearly and persuasively. Adding the “≈2.2× higher” annotation and framing the comparison per person rather than by total emissions made the message much more impactful. What surprised me was how much the framing choice itself (per-capita vs. total) could reshape the narrative without altering the underlying numbers.
+    </p>
+    <p>
+      The indexed growth visualization was more difficult, because it required deliberately choosing a representation that downplays absolute responsibility and instead emphasizes relative growth. By normalizing both groups to 2010=100, the visualization shifts the focus toward emerging economies as the main driver of growth, even though advanced economies remain substantial contributors. The shaded gap and percent-change labels added persuasive power, but also pushed the design closer to being deceptive. This exercise showed me how easy it is to steer interpretation simply by choosing baselines or normalization methods.
+    </p>
+    <p>
+      Through this process, I’ve come to define “ethical visualization” as one that balances clarity and persuasion without misrepresenting the data. Acceptable persuasion includes emphasizing comparisons or annotating key insights, as long as the message is faithful to the data. Misleading designs, however, hide or distort important context—such as ignoring absolute contributions when showing indexed growth. The boundary is not always sharp, but reflecting on both sides made me more aware of the responsibility in presenting data: every design choice carries rhetorical weight, and those choices should be transparent and defensible.
+    </p>
+
+    <p class="small">© 2025 • Data source: IMF Climate Change Indicators (GHG Emissions Accounts), 2010–2023.</p>
+  </div>
 </body>
 </html>
